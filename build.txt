@@ -1,0 +1,3 @@
+displayName = Quick Drop Platform
+author = Lasthue
+version = 0.2
