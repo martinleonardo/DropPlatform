@@ -3,6 +3,8 @@ Quick Drop Platform is a mod that make you fall down platform faster
 Credit to Terry for Fargowiltas Souls mod , i use some of its code to do this :)
 
 [ Changelog ]
+v.0.3
+- update to 1.4 Alpha
 
 v.0.2
 - added icon

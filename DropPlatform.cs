@@ -53,30 +53,30 @@ namespace DropPlatform
 			public override void ResetEffects() {
 				foreach (var pos in platform) {
 					Tile tile = Framing.GetTileSafely((int)(pos.X / 16), (int)(pos.Y / 16));
-					tile.inActive(false);
+					tile.IsActuated = false;
 				}
 				platform.Clear();
 			}
 			public override void PostUpdateMiscEffects() {
-				if (player.controlDown) {
+				if (Player.controlDown) {
 					for (int i = -2; i <= 2; i++)
 					{
-						Vector2 pos = player.Center;
+						Vector2 pos = Player.Center;
 						pos.X += i * 16;
-						pos.Y += player.height / 2;
-						if (player.mount.Active)
-							pos.Y += player.mount.HeightBoost;
+						pos.Y += Player.height / 2;
+						if (Player.mount.Active)
+							pos.Y += Player.mount.HeightBoost;
 						pos.Y += 8;
 
 						Tile tile = Framing.GetTileSafely((int)(pos.X / 16), (int)(pos.Y / 16));
-						if (!tile.inActive() && (tile.type == TileID.Platforms || tile.type == TileID.PlanterBox)) {
-							tile.inActive(true);
+						if (!tile.IsActuated && (tile.type == TileID.Platforms || tile.type == TileID.PlanterBox)) {
+							tile.IsActuated = true;
 							platform.Add(pos);
 						}
 					}
 					if (newConfig.get.ThereIsOnly1ConfigInThisMod) {
-						player.waterWalk = false;
-						player.waterWalk2 = false;
+						Player.waterWalk = false;
+						Player.waterWalk2 = false;
 					}
 				}
 			}
